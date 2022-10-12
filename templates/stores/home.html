@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content-jumbotron %}
+<p class="lead"> Choose your recipe and get started...</p>
+{% endblock %}
+{% block content %}
+<div class="row">
+    {% for i in recipes %}
+    <div class="col-md-6 col-lg-4">
+        <div class="card border-info mb-3" style="width: 21rem; height: 28rem; margin-bottom: 20px;">
+            <img class="card-img-top" src="{{ i.image.url }}" alt="Card image cap" width="350"; height="250";>
+            <div class="card-body">
+
+              <h5 class="card-title">{{ i.recipe_name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ i.type }}</h6>
+              <p class="card-text">
+                Ingredients: 
+                {{ i.Ingredient_list }}
+              </p>
+              <a class="btn btn-outline-info" href="{% url 'result' i.id %}" style="--bs-btn-hover-color: #ffffff;" role="button">Locate nearby stores</a>
+            </div>
+        </div>    
+    </div>
+    {% endfor %}    
+</div>
+
+
+{% endblock %}

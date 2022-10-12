@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content-jumbotron %}
+<p class="lead"> Each store is at the same distance from your home. Let's get the ingredients and start preparing {{ recipe_name }}</p>
+{% endblock %}
+{% block content %}
+
+<div style=" width: 50rem; margin: 10px auto; position: relative;">
+    <div style="float: left; width: 10rem; margin-right: 10px;"><img class="card-img-top" src="{{ recipe_image.url }}" alt="Card image cap" width="80"; height="180"; style="border-radius: 0.375rem;"></div>
+    <div><h1 style="width: 25rem; position: relative; margin: 0px auto;">{{ recipe_name }}</h1> <h5>{{ recipe_description }}</h5> </div>
+    <div style="clear: left;"/>
+</div>
+
+{% for i in list_of_ingredients %}
+<div style=" width: 50rem; margin: 10px auto; position: relative;">
+    <div style="float: left; width: 10rem; margin-right: 2px;"><img class="card-img-top" src="{{ i.image.url }}" alt="Card image cap" width="80"; height="180"; style="border-radius: 0.375rem;"></div>
+    <div class="card border-info mb-3" style="width: 39rem; margin: 10px auto; position: relative;">
+        <div class="card-body" >
+            <h5 class="card-title">Ingredient <span style="float: right;">{{ i.ingredient_name }}</span> </h5>
+            <h6 class="card-subtitle mb-2 text-muted">Quantity required <span style="float: right;">{{ i.quantity }} {{ i.unit }}</span></h6>
+            <p class="card-text" style="margin-top: 25px; margin-bottom: 0px;">
+                Get the same at minimum price here :-
+            </p>
+            <p class="card-text" style="margin-bottom: 0px;">
+                Store: {{ i.store_name}}
+                <span style="float: right;">
+                    Price (per kg): {{ i.price }}
+                </span>
+            </p>
+            <p class="card-text">
+                Address: {{i.address}}
+            </p>
+        </div>
+  </div>
+</div>
+
+  {% endfor %}
+{% endblock %}

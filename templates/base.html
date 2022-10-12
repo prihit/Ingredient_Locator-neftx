@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>IL</title>
+</head>
+<body>
+    <div class="container" style="margin-top: 20px;">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container" style="background-color: rgb(17, 202, 240); color: #fff;">
+              <h1 class="display-4" >INGREDIENT LOCATOR</h1>
+              <p class="lead">Hungry ?  We are here to help you get the best ingredients in the cheapest price for your meal.</p>
+              {% block content-jumbotron %}
+              {% endblock %}
+            </div>
+          </div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    </div>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>
